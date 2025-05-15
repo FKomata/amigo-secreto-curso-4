@@ -15,17 +15,17 @@
 }
 
 function sortear(){
-  let sorteados = embaralhar(listaSorteados);
+  embaralhar(listaSorteados);
+  let sorteados = document.getElementById('lista-sorteio');
 
-  for(i=0 ; i=listaSorteados; i++){
+  for (let i = 0; i < listaSorteados.length; i++) {
+    if(i == listaSorteados.length -1){
+    sorteados.innerHTML = sorteados.innerHTML + listaSorteados[i] + ' ---> ' + listaSorteados[0] + '<br>'
+    }else{
+      sorteados.innerHTML = sorteados.innerHTML + listaSorteados[i] + ' ---> ' + listaSorteados[i+1] + '<br>'
+    }
   }
-  
-  let nomes = sorteados.textContent.split(',' , 2);
-
-   
-}
-
-function reiniciar(){
+ 
 }
 
 function embaralhar(lista) {
@@ -33,4 +33,10 @@ function embaralhar(lista) {
         const indiceAleatorio = Math.floor(Math.random() * indice);
         [lista[indice - 1], lista[indiceAleatorio]] = [lista[indiceAleatorio], lista[indice - 1]];
     }
+}
+
+function reiniciar(){
+  listaSorteados = [];
+  document.getElementById('lista-sorteio').innerHTML = '';
+  document.getElementById('lista-amigos').innerHTML = '';
 }
