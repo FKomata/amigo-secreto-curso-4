@@ -2,6 +2,11 @@
 
    function adicionar(){
     let nomeAmigo = document.getElementById('nome-amigo');
+    
+    if(nomeAmigo.value == ''){
+      alert('nome de amigo não valido');
+    }
+
     let listaAmigos = document.getElementById('lista-amigos');
     listaSorteados.push(nomeAmigo.value);
 
