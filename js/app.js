@@ -2,9 +2,15 @@
 
    function adicionar(){
     let nomeAmigo = document.getElementById('nome-amigo');
-    
+
     if(nomeAmigo.value == ''){
       alert('nome de amigo não valido');
+      return;
+    }
+
+    if(listaSorteados.includes(nomeAmigo.value)){
+      alert('nome já adicionado');
+      return;
     }
 
     let listaAmigos = document.getElementById('lista-amigos');
@@ -20,6 +26,11 @@
 }
 
 function sortear(){
+if(listaSorteados.length <= 4){
+  alert('adicione pelo menos 4 pessoas para realizar o sorteio');
+  return;
+}
+
   embaralhar(listaSorteados);
   let sorteados = document.getElementById('lista-sorteio');
 
